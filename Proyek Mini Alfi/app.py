@@ -421,7 +421,7 @@ with kolom_input:
 
         tombol_prediksi = st.button(
             "Prediksi Harga Kos",
-            use_container_width=True
+            width="stretch"
         )
 
 with kolom_hasil:
@@ -556,7 +556,11 @@ with grafik_kiri:
         ax1.set_title("Sebaran Harga Kos")
         ax1.grid(axis="y", alpha=0.18)
         fig1.tight_layout()
-        st.pyplot(fig1, use_container_width=True)
+        st.pyplot(
+            fig1,
+            width="stretch",
+            alt="Histogram sebaran harga kos per bulan"
+        )
         plt.close(fig1)
 
         bagian_ai("histogram")
@@ -588,7 +592,11 @@ with grafik_kanan:
         ax2.grid(alpha=0.18)
         ax2.legend()
         fig2.tight_layout()
-        st.pyplot(fig2, use_container_width=True)
+        st.pyplot(
+            fig2,
+            width="stretch",
+            alt="Scatter plot hubungan jarak kampus dan harga kos berdasarkan fasilitas AC"
+        )
         plt.close(fig2)
 
         bagian_ai("jarak")
@@ -618,7 +626,11 @@ with grafik_kiri2:
         ax3.set_title("Rating dan Harga Kos")
         ax3.grid(alpha=0.18)
         fig3.tight_layout()
-        st.pyplot(fig3, use_container_width=True)
+        st.pyplot(
+            fig3,
+            width="stretch",
+            alt="Scatter plot hubungan rating kos dan harga kos"
+        )
         plt.close(fig3)
 
         bagian_ai("rating")
@@ -658,7 +670,11 @@ with grafik_kanan2:
             )
 
         fig4.tight_layout()
-        st.pyplot(fig4, use_container_width=True)
+        st.pyplot(
+            fig4,
+            width="stretch",
+            alt="Diagram batang rata-rata harga kos dengan dan tanpa AC"
+        )
         plt.close(fig4)
 
         bagian_ai("ac")
@@ -676,7 +692,12 @@ with st.expander("Lihat Data Dataset Kos"):
     tabel = df[kolom_tampil].copy()
     if "harga_rp" in tabel.columns:
         tabel = tabel.rename(columns={"harga_rp": "harga_per_bulan_rp"})
-    st.dataframe(tabel, use_container_width=True, hide_index=True)
+    st.dataframe(
+        tabel,
+        width="stretch",
+        hide_index=True,
+        alt="Tabel data kos Madiun"
+    )
 
 
 # =========================================================
